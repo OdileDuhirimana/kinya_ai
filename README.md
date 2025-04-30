@@ -1,3 +1,4 @@
+
 # 🔊 Kinyarwanda Voice Assistant
 
 An AI-powered voice assistant that listens, understands, and responds in **Kinyarwanda**. Built using Hugging Face's **KinyaWhisper** ASR model, it enables real-time Kinyarwanda speech transcription and generates meaningful responses — designed for educational, cultural, and experimental use.
@@ -6,18 +7,17 @@ An AI-powered voice assistant that listens, understands, and responds in **Kinya
 
 ## 🚀 Features
 
-- 🎙️ Voice recording from microphone
-- 🧠 Speech-to-text using `KinyaWhisper`
-- 🤝 Question understanding via `fuzzywuzzy`
-- 🗣️ Response generation with `gTTS` (Text-to-Speech)
-- 🔁 Extensible question-answer logic
-- 🛠️ Fully customizable for Kinyarwanda speakers
+- 🎙️ Real-time voice recording from your microphone
+- 🧠 Kinyarwanda speech-to-text transcription using `KinyaWhisper`
+- 🔍 Question matching via fuzzy logic (`fuzzywuzzy`)
+- 🗣️ Spoken responses using `gTTS` (Google Text-to-Speech)
+- ⚙️ Fully customizable Q&A logic for conversational design
 
 ---
 
 ## 🧾 Requirements
 
-Install dependencies using:
+Install all required dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -26,16 +26,15 @@ pip install -r requirements.txt
 Or manually:
 
 ```bash
-pip install torchaudio transformers fuzzywuzzy gTTS sounddevice
+pip install torch torchaudio transformers fuzzywuzzy python-Levenshtein gTTS sounddevice
 ```
 
-> 🐧 On Linux, also install an MP3 player like:
-
+> 🐧 **Linux users**: Install `mpg123` to play MP3 audio:
 ```bash
 sudo apt install mpg123
 ```
 
-> 🪟 On Windows, use `start` or `playsound` for playing `.mp3` files.
+> 🪟 **Windows users**: Uses the default media player via `start`.
 
 ---
 
@@ -43,25 +42,29 @@ sudo apt install mpg123
 
 ```bash
 .
-├── voice_assistant.py       # Record audio and transcribe audio
-├── requirements.txt   # Python packages
-├── README.md          # This file
-└── rw-test01.mp3      # Sample test audio (if provided)
+├── voice_assistant.py       # Main assistant logic (record, transcribe, respond)
+├── requirements.txt         # Python dependencies
+├── README.md                # Project documentation (this file)
+└── rw_instruction.wav       # Temporary audio file (created at runtime)
 ```
 
 ---
 
 ## ▶️ How It Works
 
-1. Run `asr.py`, which will internally trigger `recording.py`
-2. Your voice is recorded (default: 5 seconds)
-3. The assistant uses `KinyaWhisper` to transcribe it
-4. It matches your question to known Kinyarwanda phrases
-5. It plays a spoken response back to you
+1. Run the Python script:
+   ```bash
+   python voice_assistant.py
+   ```
+
+2. It records your voice for 5 seconds  
+3. Transcribes Kinyarwanda speech using `KinyaWhisper`  
+4. Finds a matching question using fuzzy logic  
+5. Speaks the answer back in Kinyarwanda
 
 ---
 
-## 🧠 Example Questions
+## 🧠 Sample Questions
 
 | You Say (Kinyarwanda) | It Responds With               |
 |-----------------------|-------------------------------|
@@ -70,42 +73,37 @@ sudo apt install mpg123
 | Umeze ute             | Meze neza cyane.              |
 | Urakora iki           | Ndi kumva no gusubiza.        |
 | Wamfasha              | Yego, nshobora kugufasha.     |
+| Nitwa nde             | Izina yawe ni Odile.          |
 
-> 🛠️ Edit these in `match_question()` in your main file.
+> 🛠️ You can modify these in the `match_question()` function.
 
 ---
 
 ## 🔧 Customization Guide
 
-- 🎤 Change how long to record by editing: `record_audio(duration=5)`
-- 🧠 Add more Q&A in the fuzzy match section
-- 🗣️ Replace TTS engine if needed (e.g. pyttsx3 for offline)
-- 🧪 Plug into more advanced NLU/NLP for better understanding
+- ⏱️ Adjust recording time in `record_audio(duration=5)`
+- ➕ Add or update questions in `qa_pairs` dictionary
+- 🗣️ Swap `gTTS` for offline TTS like `pyttsx3` if needed
+- 📈 Extend NLP with better intent detection if expanding
 
 ---
 
 ## 📦 Model Credits
 
-- 🤖 [benax-rw/KinyaWhisper](https://huggingface.co/benax-rw/KinyaWhisper)
-- 🔗 Built using [Hugging Face Transformers](https://huggingface.co/transformers/)
+- 🤖 Model: [benax-rw/KinyaWhisper](https://huggingface.co/benax-rw/KinyaWhisper)
+- 🔗 Framework: [Hugging Face Transformers](https://huggingface.co/transformers/)
 
 ---
 
 ## 👩🏾‍💻 Author
 
-**Odile (Odiboo)**
+**Odile (a.k.a. Odiboo)**
 
-> An inspiring ,organized boss lady empowering AI in African languages.
+> An organized, inspiring boss lady shaping AI for African languages and education.
 
 ---
 
 ## 📜 License
 
-MIT License — feel free to use, modify, or contribute.
-
----
-
-## 🌍 Let’s Make Kinyarwanda Heard
-
-> “Giving a voice to Kinyarwanda in the age of artificial intelligence.”
+**MIT License** — Free to use, modify, and distribute.
 
