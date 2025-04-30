@@ -43,8 +43,7 @@ sudo apt install mpg123
 
 ```bash
 .
-├── asr.py             # Transcribes audio using KinyaWhisper
-├── recording.py       # Records voice from microphone
+├── voice_assistant.py       # Record audio and transcribe audio
 ├── requirements.txt   # Python packages
 ├── README.md          # This file
 └── rw-test01.mp3      # Sample test audio (if provided)
