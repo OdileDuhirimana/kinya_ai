@@ -57,7 +57,8 @@ def match_question(transcription):
         "witwa nde": "Nitwa robot y'umunyabwenge.",
         "umeze ute": "Meze neza cyane.",
         "urakora iki": "Ndi kumva no gusubiza.",
-        "wamfasha": "Yego, nshobora kugufasha."
+        "wamfasha": "Yego, nshobora kugufasha.",
+        "nitwa nde": "Izina yawe ni Odile."
     }
 
     best_match, score = process.extractOne(transcription.lower(), qa_pairs.keys())
